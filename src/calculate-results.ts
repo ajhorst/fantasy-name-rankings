@@ -11,7 +11,7 @@ import {
 } from './name-scores';
 
 const fileToArray = (): string[][] => {
-    const content = readFileSync(`/Users/ajhorst/dev/fantasy-name-rankings/resources/responses.csv`, 'utf8');
+    const content = readFileSync(`./resources/responses.csv`, 'utf8');
 
     const result: string[][] = [];
 
@@ -22,7 +22,7 @@ const fileToArray = (): string[][] => {
             result[i] = [];
         }
         const cells = row.substring(1, row.length - 1).split('","');
-        // starting at 1 because 0 is response timestamps and 1 is emails
+        // starting at 2 because 0 is response timestamps and 1 is emails
         for (let j = 2; j < cells.length; j++) {
             const cell = cells[j];
             result[i].push(cell);
